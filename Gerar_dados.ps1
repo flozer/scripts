@@ -32,7 +32,7 @@ for ($i = 1; $i -le 50; $i++) {
     $data_1 = Get-Datas -startDate $aberturaMinDate -endDate $aberturaMaxDate
     $data_2 = Get-Datas -startDate $data_1 -endDate $aberturaMaxDate
     $data_3 = Get-Datas -startDate $data_2 -endDate $aberturaMaxDate
-    $data_4 = Get-RandomDate -startDate $data_3 -endDate $aberturaMaxDate
+    $data_4 = Get-Datas -startDate $data_3 -endDate $aberturaMaxDate
 
     # Criar uma linha do CSV
     $linha = "$id,$data1,$data2,$data3,$data4"
