@@ -1,5 +1,11 @@
-﻿# Define as colunas do arquivo CSV
+# Define as colunas do arquivo CSV
 $header = "ID,Data1,Data2,Data3,Data4"
+
+#Define o Local onde será salvo o arquivo
+$File = ”c:\temp\data.csv” 
+
+#Gera o arquivo e coloca o cabeçalho
+"$header" | Out-File -FilePath $File -Encoding utf8
 
 # Função para gerar uma data aleatória entre duas datas
 function Get-Datas {
@@ -19,24 +25,24 @@ function Get-Datas {
 }
 
 # Definir datas mínimas e máximas
-$aberturaMinDate = Get-Date "01/01/2012"
-$aberturaMaxDate = Get-Date "31/12/2023"
+$MinDate = Get-Date "01/01/2012"
+$MaxDate = Get-Date "31/12/2023"
 
-# Crie um loop que gerará 50 linhas (Altere aqui para a quantidade de linhas que você deseja).
+# Crie um loop que gerará 50 linhas
 for ($i = 1; $i -le 50; $i++) {
 
-    # Gerar um número inteiro não repetido para a o ID
+    # Gerar um número inteiro não repetido para a conta
     $id = $i
 
     # Gerar as datas
-    $data_1 = Get-Datas -startDate $aberturaMinDate -endDate $aberturaMaxDate
-    $data_2 = Get-Datas -startDate $data_1 -endDate $aberturaMaxDate
-    $data_3 = Get-Datas -startDate $data_2 -endDate $aberturaMaxDate
-    $data_4 = Get-Datas -startDate $data_3 -endDate $aberturaMaxDate
+    $data_1 = Get-Datas -startDate $MinDate -endDate $MaxDate
+    $data_2 = Get-Datas -startDate $data_1 -endDate $MaxDate
+    $data_3 = Get-Datas -startDate $data_2 -endDate $MaxDate
+    $data_4 = Get-Datas -startDate $data_3 -endDate $MaxDate
 
-    # Criar uma linha do CSV
-    $linha = "$id,$data1,$data2,$data3,$data4"
+    # Criar uma linha para inserir no CSV
+    $linha = "$id,$data_1,$data_2,$data_3,$data_4"
 
     # Escrever a linha no arquivo CSV
-    $linha | Out-File -FilePath c:\temp\data.csv -Append -Encoding UTF8
+    $linha | Out-File -FilePath $File -Append -Encoding UTF8
 }
