@@ -22,10 +22,10 @@ function Get-Datas {
 $aberturaMinDate = Get-Date "01/01/2012"
 $aberturaMaxDate = Get-Date "31/12/2023"
 
-# Crie um loop que gerará 50 linhas
+# Crie um loop que gerará 50 linhas (Altere aqui para a quantidade de linhas que você deseja).
 for ($i = 1; $i -le 50; $i++) {
 
-    # Gerar um número inteiro não repetido para a conta
+    # Gerar um número inteiro não repetido para a o ID
     $id = $i
 
     # Gerar as datas
