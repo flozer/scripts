@@ -1,5 +1,5 @@
 ﻿# Define as colunas do arquivo CSV
-$header = "ID,Data de Abertura,Data Ativacao,Data Penultima Movimentacao,Data Ultima Movimentacao"
+$header = "ID,Data1,Data2,Data3,Data4"
 
 # Função para gerar uma data aleatória entre duas datas
 function Get-Datas {
