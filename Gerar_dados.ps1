@@ -29,13 +29,13 @@ for ($i = 1; $i -le 50; $i++) {
     $id = $i
 
     # Gerar as datas
-    $data_abertura = Get-Datas -startDate $aberturaMinDate -endDate $aberturaMaxDate
-    $data_ativacao = Get-Datas -startDate $data_abertura -endDate $aberturaMaxDate
-    $data_penultima_movimentacao = Get-Datas -startDate $data_ativacao -endDate $aberturaMaxDate
-    $data_ultima_movimentacao = Get-RandomDate -startDate $data_penultima_movimentacao -endDate $aberturaMaxDate
+    $data_1 = Get-Datas -startDate $aberturaMinDate -endDate $aberturaMaxDate
+    $data_2 = Get-Datas -startDate $data_1 -endDate $aberturaMaxDate
+    $data_3 = Get-Datas -startDate $data_2 -endDate $aberturaMaxDate
+    $data_4 = Get-RandomDate -startDate $data_3 -endDate $aberturaMaxDate
 
     # Criar uma linha do CSV
-    $linha = "$id,$data_abertura,$data_ativacao,$data_penultima_movimentacao,$data_ultima_movimentacao"
+    $linha = "$id,$data1,$data2,$data3,$data4"
 
     # Escrever a linha no arquivo CSV
     $linha | Out-File -FilePath c:\temp\data.csv -Append -Encoding UTF8
